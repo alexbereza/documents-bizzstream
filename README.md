@@ -2,7 +2,7 @@
 
 1. [Install Meteor](https://www.meteor.com/install).
 
-2. [Clone GitHub repository](https://help.github.com/articles/create-a-repo/)
+2. [Clone GitHub repository](https://github.com/alexbereza/documents-bizzstream.git)
 
 
 ```
