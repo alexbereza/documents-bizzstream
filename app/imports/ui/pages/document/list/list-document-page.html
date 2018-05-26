@@ -1,0 +1,56 @@
+<template name="List_Document_Page">
+    {{#If_Logged_In}}
+        <div class="ui text container">
+
+            <div class="four wide column"><br/>
+                <h2> The List of Documents</h2>
+            </div>
+
+            {{#if Template.subscriptionsReady}}
+
+                {{#if documentsList}}
+                    {{#each document in documentsList}}
+                        <h3><i>Name: <b>{{ document.name }}</b></i></h3>
+
+                        <div class="ui divided selection list">
+                            <a class="item">
+                                <div class="ui horizontal label">{{document._id}}</div>
+                            </a>
+                        </div>
+
+                        <hr/>
+                        <h3><i>Properties</i></h3>
+
+                        <table style="margin-top: 20px" class="ui celled table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Label</th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {{#each field_data in document.fields}}
+                                <tr>
+                                    <td class="ui ribbon label">{{field_data.field._id}}</td>
+                                    <td class="disabled">{{field_data.field.label}}</td>
+                                    <td class="disabled">{{field_data.label}}</td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+
+                    {{/each}}
+
+                {{else}}
+                    {{> App_Not_Found}}
+                {{/if}}
+
+            {{else}}
+                {{> Loading}}
+            {{/if}}
+        </div>
+    {{/If_Logged_In}}
+</template>

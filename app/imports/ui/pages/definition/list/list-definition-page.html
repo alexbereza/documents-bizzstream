@@ -1,0 +1,63 @@
+<template name="List_Definition_Page">
+    {{#If_Logged_In}}
+        <div class="ui text container">
+
+            <div class="four wide column"><br/>
+                <h2> The List of Definitions</h2>
+            </div>
+
+            {{#if Template.subscriptionsReady}}
+
+                {{#if definitionsList}}
+
+                    {{#each definition in definitionsList}}
+                        <h3><i>Name: {{ definition.name }}</i></h3>
+
+                    <div class="ui divided selection list">
+                        <a class="item">
+                            <div class="ui horizontal label">{{definition._id}}</div>
+                        </a>
+                    </div>
+
+                        <hr/>
+                        <h3><i>Layouts</i></h3>
+                        <table style="margin-top: 20px" class="ui celled table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Label</th>
+                                <th>Name</th>
+                                <th>Document</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {{#each layout in layoutsList definition._id}}
+                                <tr>
+                                    <td class="ui ribbon label">{{layout._id}}</td>
+                                    <td class="disabled">{{layout.name}}</td>
+                                    <td class="disabled">{{layout.label}}</td>
+                                    <td>
+                                        <a type="button" class="ui teal basic button"
+                                           href="{{pathFor 'Add_Document_Page'
+                                                           definitionId=definition._id
+                                                           layoutId=layout._id}}">
+                                            Create
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+
+                    {{/each}}
+
+                {{else}}
+                    {{> App_Not_Found}}
+                {{/if}}
+            {{else}}
+                {{> Loading}}
+            {{/if}}
+        </div>
+    {{/If_Logged_In}}
+</template>

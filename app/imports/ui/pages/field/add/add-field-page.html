@@ -1,0 +1,65 @@
+<template name="Add_Field_Page">
+    {{#If_Logged_In}}
+        <div class="ui text container">
+
+            <div class="four wide column"><br/>
+                <h2>Add New Property (Field)</h2>
+            </div>
+
+            <br />
+
+            {{> Success_Message successMessage=successMessage}}
+
+            <form class="ui form field-data-form">
+
+                <div class="field">
+                    <label for="field_label">Label</label>
+                    <input id="field_label" name="field_label" placeholder="label" type="text">
+                </div>
+
+                <div class="field">
+                    <label for="field_name">Name</label>
+                    <input id="field_name" name="field_name" placeholder="Name" type="text">
+                </div>
+
+                <div class="field">
+                    <label for="field_type">Type</label>
+                    <select id="field_type" name="field_type">
+                        {{#each fieldTypes}}
+                            <option value="{{value}}">{{label}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="field_max_length">Max Length</label>
+                    <input id="field_max_length" name="field_max_length" placeholder="Max Length" type="text">
+                </div>
+
+
+                <div class="ui eight column grid">
+                    <div class="row">
+
+                        <div class="column">
+                            <div class="ui divided selection list">
+                                <a type="button" class="ui button"
+                                   href="{{pathFor 'List_Field_Page'}}">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <button class="ui button" type="submit">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    {{/If_Logged_In}}
+</template>

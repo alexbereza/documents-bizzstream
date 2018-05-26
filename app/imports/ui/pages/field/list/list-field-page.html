@@ -1,0 +1,58 @@
+<template name="List_Field_Page">
+    {{#If_Logged_In}}
+        <div class="ui text container">
+
+            <div class="four wide column"><br/>
+                <h2> The List of Properties (Fields)</h2>
+            </div>
+
+            {{#if Template.subscriptionsReady}}
+
+                <br />
+                <div class="ui four column grid">
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column">
+                        <a type="button" class="ui teal basic button right"
+                           href="{{pathFor 'Add_Field_Page'}}">
+                            Create property
+                        </a>
+                    </div>
+                </div>
+
+
+
+                {{#if fieldsList}}
+                    <table style="margin-top: 20px" class="ui celled table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Label</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Length</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {{#each field in fieldsList}}
+                            <tr>
+                                <td class="ui ribbon label">{{field._id}}</td>
+                                <td class="disabled">{{field.label}}</td>
+                                <td class="disabled">{{field.name}}</td>
+                                <td class="disabled">{{field.type}}</td>
+                                <td class="disabled">{{field.maxLength}}</td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    {{> App_Not_Found}}
+                {{/if}}
+            {{else}}
+                {{> Loading}}
+            {{/if}}
+        </div>
+    {{/If_Logged_In}}
+</template>

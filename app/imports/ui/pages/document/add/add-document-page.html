@@ -1,0 +1,54 @@
+<template name="Add_Document_Page">
+    {{#If_Logged_In}}
+        <div class="ui text container">
+
+            <div class="four wide column"><br/>
+                <h2>Add New Document</h2>
+            </div>
+
+            <br/>
+
+            <form class="ui form add-document-form">
+
+                <div class="field">
+                    <label for="document_name">Name</label>
+                    <input id="document_name" name="document_name" placeholder="Name" type="text">
+                </div>
+                <div class="field">
+                    <label for="document_label">Label</label>
+                    <input id="document_label" name="document_label" placeholder="Label" type="text">
+                </div>
+
+
+                <h3>Properties</h3>
+                <hr/>
+
+                {{#each field in layoutFields}}
+                    <div class="field">
+                        <label for="{{field.name}}">{{field.label}}</label>
+                        <input id="{{field._id}}" name="{{field.name}}" type="{{field.type}}"
+                               class="form-control js-field-data"/>
+                    </div>
+                {{/each}}
+
+                <div class="ui eight column grid">
+                    <div class="row">
+
+                        {{#each button in definitionLayout.buttons}}
+                            <div class="column">
+                                <button type="{{button}}" class="ui button" id="{{button}}">
+                                    {{button}}
+                                </button>
+                            </div>
+                            >
+                        {{/each}}
+
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    {{/If_Logged_In}}
+</template>

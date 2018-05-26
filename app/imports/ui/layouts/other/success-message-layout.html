@@ -1,0 +1,10 @@
+<template name="Success_Message">
+    {{!
+      If successMessage is a non-empty string, then create a ui error message whose contents is that string.
+    }}
+    {{#if successMessage }}
+        <div class="ui success message">
+            {{ successMessage }}
+        </div>
+    {{/if}}
+</template>
