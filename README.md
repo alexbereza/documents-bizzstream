@@ -15,7 +15,7 @@ Once the libraries are installed, you can run the application
 $ meteor npm run start
 ```
 
-If all goes well, the template application will appear at [http://localhost:3000](http://localhost:3000).  You can login using the credentials in [settings.development.json](https://github.com/ics-software-engineering/meteor-application-template/blob/master/config/settings.development.json), or else register a new account.
+If all goes well, the template application will appear at [http://localhost:3000](http://localhost:3000).  You can login using the credentials in config/settings.development.json, or else register a new account.
 
 
 Structure:
