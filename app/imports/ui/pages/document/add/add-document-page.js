@@ -24,9 +24,7 @@ Template.Add_Document_Page.helpers({
     definitionLayout(){
 
         // Get layout data
-        const layout = LayoutsCollection.findOne({definitionId: FlowRouter.getParam('definitionId')});
-
-        return layout;
+        return LayoutsCollection.findOne({definitionId: FlowRouter.getParam('definitionId')});
     },
 
 
